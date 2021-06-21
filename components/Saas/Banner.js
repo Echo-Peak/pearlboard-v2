@@ -116,7 +116,7 @@ class Banner extends React.Component {
 
                                     <div className="col-lg-6 col-md-12">
                                         <div className="hero-content pl-4">
-                                            <h1>Manage your business strategy in one placeholder</h1>
+                                            <h1>Manage your business strategy in one placeholder2</h1>
                                             <p>Our passion to work hard and deliver excellent results. It could solve the needs of your customers and develop innovation.</p>
                                             <Link href="/contact">
                                                 <a className="btn btn-primary">Get Started</a>

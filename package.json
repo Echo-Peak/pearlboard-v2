@@ -3,10 +3,11 @@
     "version": "3.1.0",
     "description": "Mojosa - React Next Landing Page Templates",
     "main": "index.js",
+    "engines": { "node" : ">=14 <15" },
     "scripts": {
         "dev": "node server.js -p $PORT",
         "build": "next build",
-        "start": "NODE_ENV=production node server.js -p $PORT"
+        "start": "node server.js"
     },
     "keywords": [
         "next.js",

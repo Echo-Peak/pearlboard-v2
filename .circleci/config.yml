@@ -1,0 +1,32 @@
+version: 2.1
+orbs:
+  eb: circleci/aws-elastic-beanstalk@2.0.0
+  node: circleci/node@4.1.0
+jobs:
+  build:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run: npm i --production=false
+workflows:
+# Log into AWS,build and push image to Amazon ECR
+  elastic-beanstalk-workflow:
+    jobs:
+      - build
+      - eb/deploy:
+          name: Build app
+          context: AWS-env
+          environment-name: Pearlboard-env
+          application-name: Pearlboard
+          filters:
+            branches:
+              only:
+                - master
+          label: PearlBoard--<<pipeline.git.branch>>-<<pipeline.number>>
+          requires:
+            - build
+
+
+requires:
+  - build        

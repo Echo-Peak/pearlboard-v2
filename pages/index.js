@@ -19,14 +19,13 @@ class Index extends React.Component {
                <Navbar />
                <Banner />
                <Features />
-               <Overview />
+ 
                
-               <SaasTools />
-               <Funfact />
+
+             
                <PricingPlan />
                
-               <Feedback />
-               <Partner />
+               
                <Footer />
             </>
         );

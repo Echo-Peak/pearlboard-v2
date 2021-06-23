@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const keys = require("./server/config/keys");
 const stripe = require('stripe')(keys.stripeSecretKey);
 const routes = require('./routes');
+const AuthEndpoints = require('./auth');
 
 const dev = process.env.NODE_ENV !== 'production';
 
@@ -22,6 +23,7 @@ app.prepare().then(() => {
     server.use(bodyParser.json());
     
     server.get('/healthcheck',(req, res) => res.status(200).end('ok'));
+    server.use('/auth', AuthEndpoints)
     server.get('*', (req, res) => {
         return handle(req, res)
     });

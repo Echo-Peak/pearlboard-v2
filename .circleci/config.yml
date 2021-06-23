@@ -9,6 +9,7 @@ jobs:
     steps:
       - checkout
       - run: npm i --production=false
+      - run: npm run build
 workflows:
 # Log into AWS,build and push image to Amazon ECR
   elastic-beanstalk-workflow:

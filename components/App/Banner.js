@@ -10,7 +10,7 @@ class Banner extends React.Component {
                             <div className="row">
                                 <div className="col-lg-6 col-md-12">
                                     <div className="hero-content">
-                                        <h1>Crake Makes Your Life Very Easier</h1>
+                                        <h1>Crake Makes Your Life Very Easier 1</h1>
                                         <p>Our passion to work hard and deliver excellent results. It could solve the needs of your customers and develop innovation.</p>
                                         
                                         <form>

@@ -20,7 +20,8 @@ app.prepare().then(() => {
     }));
 
     server.use(bodyParser.json());
-
+    
+    server.get('/healthcheck',(req, res) => res.status(200).end('ok'));
     server.get('*', (req, res) => {
         return handle(req, res)
     });

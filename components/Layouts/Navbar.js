@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Link from '../../utils/ActiveLink';
 import SideDrawer from './SideDrawer';
 import SearchForm from './SearchForm';
+import styled from 'styled-components';
 
 class Navbar extends React.Component {
     _isMounted = false;
@@ -52,17 +53,16 @@ class Navbar extends React.Component {
     componentWillUnmount() {
         this._isMounted = false;
     }
-
+    goto(e, path){
+      
+      this.props.router.history.push(path);
+    }
     render() {
         let { pathname } = this.props.router;
         let { products } = this.props;
 
         let layOutCls = '';
-        let logo = '/images/logo.png';
-        if (pathname == '/digital-marketing'){
-            layOutCls = 'marketing-navbar';
-            logo = '/images/logo2.png';
-        }
+        let logo = '/images/logo-alt1.png';
 
         const { collapsed } = this.state;
         const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
@@ -107,8 +107,10 @@ class Navbar extends React.Component {
                                             <a className="nav-link" href="/#" onClick={e => e.preventDefault()}>Blog</a>
                                         </li>
 
+                                        <GotoApp className="nav-item">
+                                          <a className="nav-link" href="/app" onClick={this.goto.bind(this, 'app')}>Go to app</a>
+                                        </GotoApp>
 
-                            
                                     </ul>
                                 </div>
 
@@ -134,3 +136,8 @@ const mapStateToProps = (state)=>{
 }
 
 export default withRouter(connect(mapStateToProps)(Navbar))
+
+
+const GotoApp = styled.li`
+border-left: 1px solid white;
+`;

@@ -10,13 +10,18 @@ class Banner extends React.Component {
                             <div className="row">
                                 <div className="col-lg-6 col-md-12">
                                     <div className="hero-content">
-                                        <h1>Crake Makes Your Life Very Easier 1</h1>
+                                        <h1>Create your story YOUR way</h1>
                                         <p>Our passion to work hard and deliver excellent results. It could solve the needs of your customers and develop innovation.</p>
                                         
-                                        <form>
-                                            <input type="email" placeholder="Enter your email...." className="form-control" />
-                                            <button type="submit" className="btn btn-primary">Begin Free Trial</button>
-                                        </form>
+
+                                        <div className='row'>
+                                          <div className='col-sm-4'>
+                                            <button className="btn btn-primary">Try it out!</button>
+                                          </div>
+                                          <div className='col'>
+                                            <button className="btn btn-secondary">Learn more</button>
+                                          </div>
+                                        </div>
                                     </div>
                                 </div>
                                 

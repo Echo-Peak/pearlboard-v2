@@ -58,7 +58,7 @@ function startServer(){
 }
 
 app.prepare()
-.then(() => mongoose.connect(process.env.DB_URL))
+.then(() => mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true}))
 .then(()=>{
     console.log('Services started succesfully!');
     process.env.DB_CONNECTED = true;

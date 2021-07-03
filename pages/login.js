@@ -8,12 +8,8 @@ class Login extends Component {
     render() {
         return (
             <>
-                <Navbar />
-
-                <Banner />
-
+                <Navbar darkmode={true}/>
                 <LoginBody />
-                
                 <Footer />
             </>
         );

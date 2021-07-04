@@ -49,8 +49,20 @@ export default class AppBoard extends React.Component{
   loadFromData(){
 
   }
+  componentDidMount(){
+    if(this.refs.canvas){
+      let elm = this.refs.canvas;
+      elm.ref.current.style.overflow = 'visible';
+      console.log(elm.ref.current);
+    }
+  }
   render(){
-    return <CanvasWidget engine={this.engine} style={{overflow:'visible'}} />
+    return (
+      <>
+      
+        <CanvasWidget engine={this.engine} ref='canvas'/>
+      </>
+    )
   }
 }
 

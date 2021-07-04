@@ -15,7 +15,8 @@ import withRedux from 'next-redux-wrapper';
 import { initStore } from '../store/reducers/cartReducer';
 
 import GoTop from '../components/Shared/GoTop';
-import Loader from '../components/Shared/Loader'; 
+import Loader from '../components/Shared/Loader';
+import {APIProvider} from '../contexts/api';
 
 export default withRedux(initStore)(
     class MyApp extends App {
@@ -35,7 +36,9 @@ export default withRedux(initStore)(
  
                     <Preloader>
                         <Provider store={store}>
-                            <Component {...pageProps} />
+                            <APIProvider>
+                                <Component {...pageProps} />
+                            </APIProvider>
                         </Provider>
 
                         <GoTop scrollStepInPx="50" delayInMs="16.66" />

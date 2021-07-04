@@ -7,19 +7,32 @@ export const APIConsumer = APIContext.Consumer;
 
 // create a provider
 export class APIProvider extends Component {
-    state = {
-        apples:12
-    };
-    constructor(){
-      super();
-    }
-    getCount(){
-        
-    }
+  state = {
+      dashboard:{},
+      spaces:[],
+      sheets:[],
+      currentSpace:'',
+      currentSheet:''
+  };
+  constructor(){
+    super();
+  }
+  loadDashboard(){
+      
+  }
+  getSpace(){
+
+  }
+  getSheetForProject(){
+    
+  }
   render() {
       const configObject = {
         ...this.state,
-        getCount: this.getCount.bind(this)
+        laodDashboard: this.loadDashboard.bind(this),
+        getSpace: this.getSpace.bind(this),
+        getSheetForProject: this.getSheetForProject.bind(this),
+
       };
 
       return (

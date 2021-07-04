@@ -16,14 +16,16 @@ let router = Router();
 router.use(passport.initialize());
 router.use(passport.session());
 
-router.get('/login/facebook',()=>{
+let knownProviders = [
+  'google', 'facebook'
+]
+
+router.get('/login/:provider',(req, res, next)=>{
 
 });
-router.get('/login/google',()=>{
+
+router.get('/logout/:provider',(req, res, next)=>{
 
 });
 
-router.get('/logout',()=>{
-
-});
 module.exports = router;

@@ -66,7 +66,7 @@ class PricingPlan extends React.Component {
 
                     <div className="row">
                       {tiers.map((TierItem => (
-                        <div className={`col-lg-4 col-md-6 ${TierItem.style.container}`}>
+                        <div className={`col-lg-4 col-md-6 ${TierItem.style.container}`} key={`tier-${TierItem.name}`}>
                             <div className="pricing-table">
                                 <div className="price-header">
                                     <h3 className="title">{TierItem.name}</h3>

@@ -5,12 +5,11 @@ const next = require('next');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const keys = require("./server/config/keys");
-const stripe = require('stripe')(keys.stripeSecretKey);
 const routes = require('./routes');
-const AuthEndpoints = require('./auth');
+const AuthEndpoint = require('./server/auth');
+const APIEndpoint = require('./server/data');
+const BillingEndpoint = require('./server/billing');
 const mongoose = require('mongoose');
-const modelTest = require('./server/models/test');
 
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -33,30 +32,13 @@ function startServer(){
       }));
     server.use(bodyParser.json());
 
-    server.get('/api/test/set',(req, res, next)=>{
-        console.log('-----1');
-        const Tank = mongoose.model('ModelTest', modelTest);
-        let b = new Tank({appleCount:28, name:'zoop', content:'djjf'});
-        b.save(()=>{
-            console.log('SAVED');
-            res.status(201).end();
-        });
-    });
     server.get('/healthcheck',(req, res) => res.status(200).end('ok'));
-    server.use('/auth', AuthEndpoints)
+    server.use('/auth', AuthEndpoint);
+    server.use('/api/v1', APIEndpoint);
+    server.use('/billing', BillingEndpoint);
     server.get('*', (req, res) => {
         return handle(req, res)
     });
-
-    // server.post('/api/stripe/checkout', async (req, res) => {
-    //     await stripe.charges.create({
-    //         amount: req.body.amount,
-    //         currency: 'usd',
-    //         description: 'Mojosa - React Next Landing Page Templates',
-    //         source: req.body.token.id
-    //     });
-    //     res.send({})
-    // });
 
     const PORT = 8080;
 

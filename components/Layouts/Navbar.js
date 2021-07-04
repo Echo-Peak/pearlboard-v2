@@ -129,13 +129,7 @@ class Navbar extends React.Component {
     }
 }
 
-const mapStateToProps = (state)=>{
-    return{
-        products: state.addedItems
-    }
-}
-
-export default withRouter(connect(mapStateToProps)(Navbar))
+export default withRouter(Navbar);
 
 
 const GotoApp = styled.li`

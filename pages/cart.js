@@ -8,13 +8,7 @@ class Cart extends Component {
     render() {
         return (
             <>
-                <Navbar />
 
-                <Banner />
-                
-                <CartBody />
-
-                <Footer />
             </>
         );
     }

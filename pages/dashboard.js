@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import dynamic from 'next/dynamic';
 import Navbar from '../components/Layouts/Navbar';
 import Footer from '../components/Layouts/Footer';
 import DashboardContent from '../components/Dashboard/index';

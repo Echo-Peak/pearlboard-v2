@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Link from "next/link";
-import { connect } from 'react-redux';
 import { removeItem, addQuantity, subtractQuantity } from '../../store/actions/cartActions';
 
 class CartBody extends Component {
@@ -18,6 +17,7 @@ class CartBody extends Component {
     }
 
     render() {
+        return false;
         let cartItems = this.props.products.length ?
         (
             this.props.products.map((data, idx) => {
@@ -164,7 +164,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(
-    mapStateToProps, 
-    mapDispatchToProps
-)(CartBody)
+export default CartBody;

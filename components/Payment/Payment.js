@@ -2,7 +2,6 @@ import React from 'react';
 import axios from "axios"
 import Router from 'next/router'
 import StripeCheckout from 'react-stripe-checkout';
-import { connect } from 'react-redux';
 import { resetCart } from '../../store/actions/cartActions';
 
 class Payments extends React.Component {
@@ -12,6 +11,7 @@ class Payments extends React.Component {
     }
     render(){
         let { amount } = this.props;
+        return false;
         const onToken = async token => {
             const body = {
                 amount: amount,
@@ -49,7 +49,4 @@ const mapDispatchToProps= (dispatch)=>{
     }
 }
 
-export default connect(
-    null,
-    mapDispatchToProps
-)(Payments)
+export default Payments;

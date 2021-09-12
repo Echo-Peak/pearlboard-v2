@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
 import Link from "next/link";
 import Payment from '../Payment/Payment';
 
 class OrderSummary extends Component {
     render() {
+        return false;
         let totalAmount = (this.props.total).toFixed(2)
         return (
             <div className="col-lg-6 col-md-12">
@@ -102,6 +103,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(
-    mapStateToProps
-)(OrderSummary)
+export default OrderSummary

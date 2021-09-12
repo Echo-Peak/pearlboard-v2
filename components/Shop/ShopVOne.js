@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-import { connect } from 'react-redux';
 import { addToCart } from '../../store/actions/cartActions';
 
 class ShopVOne extends Component {
@@ -11,6 +10,7 @@ class ShopVOne extends Component {
 
     render() {
         let { products } = this.props;
+        return false;
         return (
             <section className="product-area ptb-100">
                 <div className="container">
@@ -126,7 +126,4 @@ const mapDispatchToProps= (dispatch) => {
     }
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ShopVOne)
+export default ShopVOne;
